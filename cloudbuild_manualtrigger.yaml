@@ -3,11 +3,6 @@ steps:
     script: |
       #!/bin/bash
       echo "Hello World" 
-      readarray -t my_array < <(jq -c '.[]' release.json)
-      for item in "${my_array[@]}"; do
-        original_name=$(jq '.original_name' <<< "$item")
-        changed_name=$(jq '.changed_name' <<< "$item")
-      done
       
   - name: 'gcr.io/cloud-builders/gcloud'
     id: push-manifest
