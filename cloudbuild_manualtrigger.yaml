@@ -4,6 +4,10 @@ steps:
       #!/bin/bash
       echo "Hello World" 
       echo "test123"
+      file="release.txt"
+      while read -r line; do
+        echo -e "$line\n"
+      done <$file 
       
   - name: 'gcr.io/cloud-builders/gcloud'
     id: push-manifest
