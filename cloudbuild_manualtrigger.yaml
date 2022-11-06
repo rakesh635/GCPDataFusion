@@ -6,7 +6,9 @@ steps:
       echo "test123"
       file="release.txt"
       while read -r line; do
+        eachLine=(${line//,/ })
         echo -e "$line\n"
+        echo -e "$eachLine[0] , $eachLine[1]\n"
       done <$file 
       
   - name: 'gcr.io/cloud-builders/gcloud'
